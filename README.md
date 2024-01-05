@@ -25,6 +25,17 @@ Delete backup:
 velero backup delete backup-1
 ```
 
+Get the schedule backup list:
+```bash
+velero get schedules
+```
+
+Schedule a backup:
+```bash
+velero create backup --from-schedule daily-backup
+```
+
+
 Get the backup location:
 ```bash
 velero get backup-location
