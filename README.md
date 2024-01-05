@@ -7,7 +7,7 @@ brew install velero
 
 Create backup:
 ```bash
-velero create backup new-backup
+velero create backup backup-1
 ```
 
 List all the backups:
@@ -17,10 +17,15 @@ velero get backups
 
 Describe the backup:
 ```bash
-velero describe backups daily-backup-20231207000045
+velero describe backups backup-1
 ```
 
 Get the backup location:
 ```bash
 velero get backup-location
+```
+
+Restore backup:
+```bash
+velero restore create restore-1 --from-backup backup-1
 ```
