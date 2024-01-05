@@ -5,6 +5,11 @@ Install Velero:
 brew install velero
 ```
 
+Create backup:
+```bash
+velero create backup new-backup
+```
+
 List all the backups:
 ```bash
 velero get backups
