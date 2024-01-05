@@ -20,6 +20,11 @@ Describe the backup:
 velero describe backups backup-1
 ```
 
+Delete backup:
+```bash
+velero backup delete backup-1
+```
+
 Get the backup location:
 ```bash
 velero get backup-location
