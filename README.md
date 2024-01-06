@@ -25,6 +25,11 @@ Check the logs of a backup:
 velero backup logs backup-1
 ```
 
+Filter errors:
+```bash
+velero backup logs backup-1 | grep level=error
+```
+
 Delete backup:
 ```bash
 velero backup delete backup-1
