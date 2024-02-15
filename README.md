@@ -35,6 +35,11 @@ Delete backup:
 velero backup delete backup-1
 ```
 
+Create a schedule:
+```bash
+velero create schedule daily-backup --schedule="0 8 * * 1-6"
+```
+
 Get the schedule backup list:
 ```bash
 velero get schedules
