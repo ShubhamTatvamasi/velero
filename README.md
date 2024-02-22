@@ -30,6 +30,11 @@ Filter errors:
 velero backup logs backup-1 | grep level=error
 ```
 
+Get list of all items inside backup:
+```bash
+velero backup describe backup-1 --details
+```
+
 Delete backup:
 ```bash
 velero backup delete backup-1
