@@ -10,6 +10,11 @@ Create backup:
 velero create backup backup-1
 ```
 
+Take backup for only `monitoring` namespace and delete after 10 minutes.
+```bash
+velero backup create test-backup-1 --ttl 10m --include-namespaces monitoring
+```
+
 List all the backups:
 ```bash
 velero get backups
