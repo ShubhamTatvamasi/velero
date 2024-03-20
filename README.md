@@ -50,6 +50,25 @@ Create a schedule:
 velero create schedule daily-backup --schedule="0 8 * * 1-6"
 ```
 
+Create a schedule from yaml:
+```yaml
+kubectl apply -f - << EOF
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: daily-monitoring-backup
+  namespace: velero
+spec:
+  schedule: '0 8 * * 1-6'
+  template:
+    csiSnapshotTimeout: 30m
+    itemOperationTimeout: 30m
+    ttl: 10m
+    includedNamespaces:
+      - monitoring
+EOF
+```
+
 Get the schedule backup list:
 ```bash
 velero get schedules
