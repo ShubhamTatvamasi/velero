@@ -10,7 +10,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 Install Minio:
 ```bash
 helm upgrade -i minio bitnami/minio  \
-  --namespace velero \
+  --namespace minio \
   --create-namespace \
   --version 14.1.7 \
   --set auth.rootPassword=rootpass123
@@ -37,7 +37,7 @@ velero install \
     --bucket velero \
     --secret-file ./credentials-velero \
     --use-volume-snapshots=false \
-    --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.velero.svc:9000
+    --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.minio.svc:9000
 ```
 
 
