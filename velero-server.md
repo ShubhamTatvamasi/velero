@@ -17,3 +17,28 @@ helm upgrade -i minio bitnami/minio  \
 ```
 
 User `admin` Pass `rootpass123`
+
+### Velero Setup
+
+Create credentials file:
+```bash
+cat << EOF >> credentials-velero
+[default]
+aws_access_key_id = admin
+aws_secret_access_key = rootpass123
+EOF
+```
+
+Install Velero:
+```bash
+velero install \
+    --provider aws \
+    --plugins velero/velero-plugin-for-aws:v1.9.1 \
+    --bucket velero \
+    --secret-file ./credentials-velero \
+    --use-volume-snapshots=false \
+    --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.velero.svc:9000
+```
+
+
+
